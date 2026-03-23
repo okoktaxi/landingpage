@@ -37,7 +37,7 @@ Chennai, Tamil Nadu
 ## 🌐 Book Online
 
 👉 Visit our website:  
-https://github.com/okoktaxi/landingpag
+https://github.com/okoktaxi/landingpage
 
 ---
 
