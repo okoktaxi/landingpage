@@ -104,6 +104,10 @@ img{max-width:100%;display:block}
 </style>
 </head>
 <body>
+  <div style="display:flex;align-items:center;padding:10px 20px;background:#000;color:#fff;">
+  <img src="https://via.placeholder.com/120x50?text=OKOK+Taxi" style="height:40px;margin-right:10px;">
+  <h2 style="margin:0;font-size:18px;">OKOK Taxi</h2>
+</div>
 
 <!-- Navbar -->
 <nav class="navbar">
@@ -137,14 +141,17 @@ img{max-width:100%;display:block}
 <input type="tel" placeholder="Phone Number" required id="bPhone"/>
 <input type="text" placeholder="Pickup Location" required id="bPickup"/>
 <input type="text" placeholder="Drop Location" required id="bDrop"/>
-<input type="date" required id="bDate"/>
-<select id="bService">
-<option>Airport Transfer</option>
-<option>Local Rental</option>
-<option>Outstation</option>
-<option>One Way Drop</option>
+<input type="date" id="bDate" required>
+<input type="time" id="bTime" required>
+<select id="bService" required>
+  <option value="">Select Service</option>
+  <option>Local Rental</option>
+  <option>Airport Pickup</option>
+  <option>Airport Drop</option>
+  <option>Outstation One Way</option>
+  <option>Outstation Round Trip</option>
 </select>
-<button type="submit" class="btn-cta">📩 Get Estimate via WhatsApp</button>
+<button type="submit" class="btn-cta"> Get Estimate via WhatsApp</button>
 </form>
 </div>
 </div>
