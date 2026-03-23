@@ -138,7 +138,16 @@ img{max-width:100%;display:block}
 <form class="booking-form" onsubmit="handleBooking(event)">
 <h3>Book Your Ride Now</h3>
 <input type="text" placeholder="Your Name" required id="bName"/>
-<input type="tel" placeholder="Phone Number" required id="bPhone"/>
+<input 
+  type="tel" 
+  id="bPhone"
+  placeholder="Enter 10-digit Mobile Number"
+  maxlength="10"
+  required
+  oninput="checkMobile()"
+/>
+
+<div id="phoneError" style="color:red; font-size:12px;"></div>
 <input type="text" placeholder="Pickup Location" required id="bPickup"/>
 <input type="text" placeholder="Drop Location" required id="bDrop"/>
 <input 
