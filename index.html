@@ -103,12 +103,23 @@ img{max-width:100%;display:block}
 .sticky-cta .s-wa{background:var(--green);color:var(--white)}
 @media(min-width:768px){.sticky-cta{display:none}}
 </style>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MMN349WN');</script>
+<!-- End Google Tag Manager -->
 </head>
 <body>
   <div style="display:flex;align-items:center;padding:10px 20px;background:#000;color:#fff;">
   <img src="okoktaxi-logo.jpeg?text=OKOK+Taxi" style="height:40px;margin-right:10px;">
   <h2 style="margin:0;font-size:18px;">OKOK Taxi</h2>
 </div>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMN349WN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- Hero -->
 <section class="hero">
@@ -401,12 +412,13 @@ Affordable taxi fare with no surge pricing in Chennai
 </div>
 
 <script>
-function trackConversion(t){if(window.gtag)gtag("event","conversion",{event_category:"CTA",event_label:t})}
-function handleBooking(e){
-e.preventDefault();
-trackConversion("booking_whatsapp");
-var m="🚕 New Booking Request\n\nName: "+document.getElementById("bName").value+"\nPhone: "+document.getElementById("bPhone").value+"\nPickup: "+document.getElementById("bPickup").value+"\nDrop: "+document.getElementById("bDrop").value+"\nDate: "+document.getElementById("bDate").value+"\nService: "+document.getElementById("bService").value;
-window.open("https://wa.me/918608199000?text="+encodeURIComponent(m),"_blank");
+function trackConversion(type){
+  window.dataLayer = window.dataLayer || [];
+
+  dataLayer.push({
+    'event': 'cta_click',
+    'cta_type': type
+  });
 }
 </script>
 </body>
