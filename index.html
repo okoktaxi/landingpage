@@ -180,10 +180,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <option>Airport(Pickup/Drop)</option>
   <option>Outstation (One Way/ Round Trip)</option>
 </select>
-<form class="booking-form" 
-      onsubmit="trackConversion('booking_whatsapp'); handleBooking(event)">
-
-  <!-- all inputs -->
+<form class="booking-form" onsubmit="submitForm(event)">
+<!-- all inputs -->
 
   <button type="submit" class="btn-cta">
     Get Estimate via WhatsApp
@@ -429,12 +427,16 @@ Affordable taxi fare with no surge pricing in Chennai
 </div>
 
 <script>
-function trackConversion(type){
-  window.dataLayer = window.dataLayer || [];
-  dataLayer.push({
-    event: 'cta_click',
-    cta_type: type
-  });
+function submitForm(e){
+  e.preventDefault();
+
+  //  send to GTM
+  trackConversion('booking_whatsapp');
+
+  //  your existing logic
+  setTimeout(function(){
+    handleBooking(e);
+  }, 300);
 }
 </script>
 </body>
