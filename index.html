@@ -183,10 +183,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <form class="booking-form" onsubmit="submitForm(event)">
 <!-- all inputs -->
 
-  <button type="submit" class="btn-cta">
-    Get Estimate via WhatsApp
-  </button>
-
+<button type="button" class="btn-cta" onclick="sendBooking()">
+  Get Estimate via WhatsApp
+</button>
 </form>
 </div>
 </div>
@@ -427,16 +426,24 @@ Affordable taxi fare with no surge pricing in Chennai
 </div>
 
 <script>
-function submitForm(e){
-  e.preventDefault();
+function trackConversion(type){
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({
+    event: 'cta_click',
+    cta_type: type
+  });
+}
 
-  //  send to GTM
+function sendBooking(){
+
+  // 🔥 GTM event
   trackConversion('booking_whatsapp');
 
-  //  your existing logic
-  setTimeout(function(){
-    handleBooking(e);
-  }, 300);
+  // 👉 existing logic (if exists)
+  if(typeof handleBooking === "function"){
+    handleBooking();
+  }
+
 }
 </script>
 </body>
