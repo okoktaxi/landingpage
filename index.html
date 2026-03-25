@@ -45,7 +45,7 @@ img{max-width:100%;display:block}
 .btn-cta{background:linear-gradient(135deg,var(--yellow),var(--yellow-dark));color:var(--black);padding:14px 32px;border-radius:12px;font-family:var(--font-display);font-weight:700;font-size:16px;text-align:center;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 8px 32px -4px rgba(251,191,36,.5);transition:all .2s;border:none;cursor:pointer}
 .btn-cta:hover{transform:translateY(-1px);box-shadow:0 12px 40px -4px rgba(251,191,36,.6)}
 .btn-whatsapp{background:var(--green);color:var(--white);padding:14px 32px;border-radius:12px;font-family:var(--font-display);font-weight:700;font-size:16px;text-align:center;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;border:none;cursor:pointer}
-.btn-whatsapp:hover{background:var(--green-dark);transform:translateY(-1px)}
+.btn-whatsapp:hover{background:var(--green-dark);trans:translateY(-1px)}
 @media(min-width:768px){.hero-text h1{font-size:42px}.hero-btns{flex-direction:row}.hero-text{text-align:left}}
 @media(min-width:1024px){.hero-inner{flex-direction:row;align-items:flex-start}}
 
@@ -180,11 +180,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <option>Airport(Pickup/Drop)</option>
   <option>Outstation (One Way/ Round Trip)</option>
 </select>
-<form onsubmit="trackConversion('booking_whatsapp'); setTimeout(()=>{},300);">
+<form class="booking-form" 
+      onsubmit="trackConversion('booking_whatsapp'); handleBooking(event)">
+
+  <!-- all inputs -->
+
   <button type="submit" class="btn-cta">
     Get Estimate via WhatsApp
   </button>
-</form>
+
 </form>
 </div>
 </div>
@@ -427,10 +431,9 @@ Affordable taxi fare with no surge pricing in Chennai
 <script>
 function trackConversion(type){
   window.dataLayer = window.dataLayer || [];
-
   dataLayer.push({
-    'event': 'cta_click',
-    'cta_type': type
+    event: 'cta_click',
+    cta_type: type
   });
 }
 </script>
