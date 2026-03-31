@@ -178,10 +178,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <option value="">Select Service</option>
   <option>Local Rental</option>
   <option>Airport(Pickup/Drop)</option>
-  <option>Outstation (One Way/ Round Trip)</option>
+  <option> One Way </option>
+  <option> Round Trip </option>
 </select>
 <!-- all inputs -->
-
 <button type="button" class="btn-cta" onclick="sendBooking()">
   Get Estimate via WhatsApp
 </button>
@@ -415,7 +415,6 @@ Affordable taxi fare with no surge pricing in Chennai
 
   </div>
 </footer>
-
 <script>
 function trackConversion(type){
   window.dataLayer = window.dataLayer || [];
@@ -426,15 +425,44 @@ function trackConversion(type){
 }
 
 function sendBooking(){
-
-  // 🔥 GTM event
   trackConversion('booking_whatsapp');
 
-  // 👉 existing logic (if exists)
   if(typeof handleBooking === "function"){
     handleBooking();
   }
+}
 
+// ✅ THIS IS MISSING FUNCTION
+function handleBooking(){
+
+  var name = document.getElementById("bName").value;
+  var phone = document.getElementById("bPhone").value;
+  var pickup = document.getElementById("bPickup").value;
+  var drop = document.getElementById("bDrop").value;
+  var date = document.getElementById("bDate").value;
+  var time = document.getElementById("bTime").value;
+  var service = document.getElementById("bService").value;
+
+  // validation
+  if(!name || !phone || !pickup || !drop || !date || !time || !service){
+    alert("Please fill all details");
+    return;
+  }
+
+  // message format
+  var message = `New Booking Request:%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Pickup: ${pickup}%0A
+Drop: ${drop}%0A
+Date: ${date}%0A
+Time: ${time}%0A
+Service: ${service}`;
+
+  // WhatsApp redirect
+  var whatsappURL = "https://wa.me/918608199000?text=" + message;
+
+  window.open(whatsappURL, "_blank");
 }
 </script>
 </body>
